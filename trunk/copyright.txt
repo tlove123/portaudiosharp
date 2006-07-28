@@ -3,3 +3,7 @@
 	Riccardo Gerosa (aka h3)
 	email: r.gerosa@gmail.com
 	site: http://www.postronic.org/h3
+
+@contributor
+  Moreno Carullo
+  site: http://tweety.pulc.it/
