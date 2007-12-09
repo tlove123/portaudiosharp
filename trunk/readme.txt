@@ -1,6 +1,6 @@
 
 PortAudioSharp - PortAudio bindings for .NET
-Copyright (C) 2006  Riccardo Gerosa
+Copyright (C) 2006-2007  Riccardo Gerosa
 --------------------------------------------
 	
 This library is free software; you can redistribute it and/or
@@ -32,11 +32,10 @@ There is no "unsafe" code.
 
 Compiling
 ---------
-At the moment there is only a MonoDevelop 0.10 solution
-(PortAudioSharp.mds), if you don't use MonoDevelop you have to
-create your own project-files or make-scripts
+Solution and project files for MonoDevelop 0.10 and 
+SharpDevelop 2.2 / Visual Studio 20057 are provided.
 The solution contains two projects: The PortAudioSharp library
-project and a simple test project PortAudioSharpTest.
+project and a simple test project called PortAudioSharpTest.
 
 
 Installing / Using
@@ -44,9 +43,10 @@ Installing / Using
 1) To use the PortAudioSharp bindings you must have the PortAudio v.19
    library installed on your system, you can find PortAudio source code at
    http://www.portaudio.com
+   Under Windows the PortAudio DLL must be named "PortAudio.dll", so
+   rename this file if necessary.
    If you are using a Linux/Unix system you will have to compile and install
-   the libportaudio.so library, if you use Windows you will need to
-   build a PortAudio.dll library.
+   the "libportaudio.so" library.
 
 2) If you are using a source distribution of PortAudioSharp you need 
    to compile it.

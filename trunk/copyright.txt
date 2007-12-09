@@ -1,6 +1,6 @@
 
 @author 
-  Riccardo Gerosa (aka h3)
+  Riccardo Gerosa (aka h3r3)
   email: r.gerosa@gmail.com
   site: http://www.postronic.org/h3
 
