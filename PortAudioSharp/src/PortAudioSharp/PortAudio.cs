@@ -34,6 +34,7 @@ namespace PortAudioSharp {
 	{	
 	    #region **** PORTAUDIO CALLBACKS ****
 	    
+	    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate PaStreamCallbackResult PaStreamCallbackDelegate(
 	 		IntPtr input,
 	 		IntPtr output,
