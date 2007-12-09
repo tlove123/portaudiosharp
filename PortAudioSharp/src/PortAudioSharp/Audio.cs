@@ -1,6 +1,6 @@
  /*
   * PortAudioSharp - PortAudio bindings for .NET
-  * Copyright 2006, Riccardo Gerosa, and individual contributors as indicated
+  * Copyright 2006-2007, Riccardo Gerosa, and individual contributors as indicated
   * by the @authors tag. See the copyright.txt in the distribution for a
   * full listing of individual contributors.
   *
