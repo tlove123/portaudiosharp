@@ -49,7 +49,7 @@ namespace PortAudioSharpTest
 		 		// log("time: " + timeInfo.currentTime 
 		 		// 		+ " " + timeInfo.inputBufferAdcTime
 		 		//		+ " " + timeInfo.outputBufferDacTime);
-		 		//	log("statusFlags: "+statusFlags);
+		 		// log("statusFlags: "+statusFlags);
 		 		
 		 		if (callbackBuffer.Length < frameCount*2) 
 		 			callbackBuffer = new float[frameCount*2];
