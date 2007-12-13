@@ -98,10 +98,10 @@ namespace PortAudioSharp {
 	 			System.Console.WriteLine();
 	 	} 
 	 	
-	 	private bool errorCheck(String action, PortAudio.PaErrorCode errorCode) {
-	 		if (errorCode != PortAudio.PaErrorCode.paNoError) {
+	 	private bool errorCheck(String action, PortAudio.PaError errorCode) {
+	 		if (errorCode != PortAudio.PaError.paNoError) {
 	 			log(action + " error: " + PortAudio.Pa_GetErrorText(errorCode));
-	 			if (errorCode == PortAudio.PaErrorCode.paUnanticipatedHostError) {
+	 			if (errorCode == PortAudio.PaError.paUnanticipatedHostError) {
 	 				PortAudio.PaHostErrorInfo errorInfo = PortAudio.Pa_GetLastHostErrorInfo();
 	 				log("- Host error API type: " + errorInfo.hostApiType);
 	 				log("- Host error code: " + errorInfo.errorCode);
