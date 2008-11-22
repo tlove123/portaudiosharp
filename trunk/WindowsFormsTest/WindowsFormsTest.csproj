@@ -1,20 +1,16 @@
 ﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
-    <ProjectGuid>{CB165ABF-222F-4CDE-8B46-FE2BDBC34F44}</ProjectGuid>
+    <ProjectGuid>{ADF0E0FB-EC9D-4A28-9A2B-95F34FD38B82}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>PortAudioSharpTest</RootNamespace>
-    <AssemblyName>PortAudioSharpTest</AssemblyName>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
-    <NoStdLib>False</NoStdLib>
-    <WarningLevel>4</WarningLevel>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WindowsFormsTest</RootNamespace>
+    <AssemblyName>WindowsFormsTest</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <OutputPath>bin\Debug\</OutputPath>
-    <DebugSymbols>true</DebugSymbols>
+    <DebugSymbols>True</DebugSymbols>
     <DebugType>Full</DebugType>
     <Optimize>False</Optimize>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
@@ -28,25 +24,18 @@
     <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
     <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
-    <RegisterForComInterop>False</RegisterForComInterop>
-    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
-    <BaseAddress>4194304</BaseAddress>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <FileAlignment>4096</FileAlignment>
-  </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src" />
+    <None Include="app.config" />
     <Compile Include="src\AssemblyInfo.cs" />
     <Compile Include="src\Main.cs" />
     <Compile Include="src\PortAudioTest.cs" />
-    <None Include="app.config" />
-    <None Include="PortAudioSharpTest.mdp" />
-    <None Include="PortAudioSharpTest.pidb" />
     <ProjectReference Include="..\PortAudioSharp\PortAudioSharp.csproj">
       <Project>{8199A26E-C92E-4F6A-9EEE-95F7AFC58847}</Project>
       <Name>PortAudioSharp</Name>
