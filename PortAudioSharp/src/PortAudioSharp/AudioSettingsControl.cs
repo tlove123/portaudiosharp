@@ -69,6 +69,20 @@ namespace PortAudioSharp.PortAudioSharp
 		{
 			HostApiItem selectedItem = (HostApiItem) driverTypeComboBox.SelectedItem;
 			Console.Out.WriteLine(selectedItem.HostApiInfo.name);
+			audioSettingsPanel.Controls.Clear();
+			switch(selectedItem.HostApiInfo.type) {
+				case PortAudio.PaHostApiTypeId.paMME:
+					audioSettingsPanel.Controls.Add(new MMEDeviceControl());
+					break;
+				case PortAudio.PaHostApiTypeId.paDirectSound:
+					audioSettingsPanel.Controls.Add(new DirectSoundDeviceControl());
+					break;
+				case PortAudio.PaHostApiTypeId.paASIO:
+					audioSettingsPanel.Controls.Add(new ASIODeviceControl());
+					break;
+			}
+			
 		}
+	
 	}
 }

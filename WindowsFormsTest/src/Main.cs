@@ -49,7 +49,7 @@ namespace PortAudioSharpTest
 			PortAudio.Pa_Initialize();
 			
 			Application.EnableVisualStyles();
-			Application.SetCompatibleTextRenderingDefault(false);
+			
 			Application.Run(new ApiHostSelectionForm());
 			
 			PortAudio.Pa_Terminate();
