@@ -49,9 +49,9 @@
     <None Include="PortAudioSharp.mdp" />
     <None Include="PortAudioSharp.pidb" />
     <Compile Include="src\AssemblyInfo.cs" />
-    <Compile Include="src\PortAudioSharp\AudioSettingsForm.cs" />
-    <Compile Include="src\PortAudioSharp\AudioSettingsForm.Designer.cs">
-      <DependentUpon>AudioSettingsForm.cs</DependentUpon>
+    <Compile Include="src\PortAudioSharp\ApiHostSelectionForm.cs" />
+    <Compile Include="src\PortAudioSharp\ApiHostSelectionForm.Designer.cs">
+      <DependentUpon>ApiHostSelectionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="src\PortAudioSharp\Audio.cs" />
     <Compile Include="src\PortAudioSharp\AudioSettingsControl.cs" />
@@ -71,8 +71,8 @@
     <Compile Include="src\PortAudioSharp\ASIODeviceControl.Designer.cs">
       <DependentUpon>ASIODeviceControl.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="src\PortAudioSharp\AudioSettingsForm.resx">
-      <DependentUpon>AudioSettingsForm.cs</DependentUpon>
+    <EmbeddedResource Include="src\PortAudioSharp\ApiHostSelectionForm.resx">
+      <DependentUpon>ApiHostSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\PortAudioSharp\ASIODeviceControl.resx">
       <DependentUpon>ASIODeviceControl.cs</DependentUpon>

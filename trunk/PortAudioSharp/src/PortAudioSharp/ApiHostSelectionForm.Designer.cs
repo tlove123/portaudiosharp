@@ -55,7 +55,7 @@ namespace PortAudioSharp
 			this.settingsTableLayoutPanel.RowCount = 2;
 			this.settingsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 340F));
 			this.settingsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.settingsTableLayoutPanel.Size = new System.Drawing.Size(353, 376);
+			this.settingsTableLayoutPanel.Size = new System.Drawing.Size(359, 376);
 			this.settingsTableLayoutPanel.TabIndex = 0;
 			// 
 			// flowLayoutPanel1
@@ -67,12 +67,12 @@ namespace PortAudioSharp
 			this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 343);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
 			this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(347, 30);
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(353, 30);
 			this.flowLayoutPanel1.TabIndex = 0;
 			// 
 			// cancelButton
 			// 
-			this.cancelButton.Location = new System.Drawing.Point(269, 3);
+			this.cancelButton.Location = new System.Drawing.Point(275, 3);
 			this.cancelButton.Name = "cancelButton";
 			this.cancelButton.Size = new System.Drawing.Size(75, 23);
 			this.cancelButton.TabIndex = 1;
@@ -82,7 +82,7 @@ namespace PortAudioSharp
 			// okButton
 			// 
 			this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.okButton.Location = new System.Drawing.Point(188, 3);
+			this.okButton.Location = new System.Drawing.Point(194, 3);
 			this.okButton.Name = "okButton";
 			this.okButton.Size = new System.Drawing.Size(75, 23);
 			this.okButton.TabIndex = 0;
@@ -93,12 +93,14 @@ namespace PortAudioSharp
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(373, 396);
+			this.AutoSize = true;
+			this.ClientSize = new System.Drawing.Size(379, 396);
 			this.Controls.Add(this.settingsTableLayoutPanel);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Name = "ApiHostSelectionForm";
 			this.Padding = new System.Windows.Forms.Padding(10);
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			this.ShowInTaskbar = false;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Audio hardware settings";
 			this.Load += new System.EventHandler(this.ApiHostSelectionFormLoad);
 			this.settingsTableLayoutPanel.ResumeLayout(false);
