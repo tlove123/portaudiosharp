@@ -48,9 +48,10 @@ namespace PortAudioSharp.PortAudioSharp
 			// audioSettingsTableLayoutPanel
 			// 
 			this.audioSettingsTableLayoutPanel.AutoSize = true;
+			this.audioSettingsTableLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.audioSettingsTableLayoutPanel.ColumnCount = 2;
 			this.audioSettingsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.audioSettingsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 255F));
+			this.audioSettingsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 260F));
 			this.audioSettingsTableLayoutPanel.Controls.Add(this.samleRateLabel, 0, 2);
 			this.audioSettingsTableLayoutPanel.Controls.Add(this.driverTypeLabel, 0, 0);
 			this.audioSettingsTableLayoutPanel.Controls.Add(this.driverTypeComboBox, 1, 0);
@@ -62,16 +63,16 @@ namespace PortAudioSharp.PortAudioSharp
 			this.audioSettingsTableLayoutPanel.Name = "audioSettingsTableLayoutPanel";
 			this.audioSettingsTableLayoutPanel.RowCount = 3;
 			this.audioSettingsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.audioSettingsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 280F));
+			this.audioSettingsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 204F));
 			this.audioSettingsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.audioSettingsTableLayoutPanel.Size = new System.Drawing.Size(370, 350);
+			this.audioSettingsTableLayoutPanel.Size = new System.Drawing.Size(370, 334);
 			this.audioSettingsTableLayoutPanel.TabIndex = 2;
 			// 
 			// samleRateLabel
 			// 
 			this.samleRateLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
 			this.samleRateLabel.AutoSize = true;
-			this.samleRateLabel.Location = new System.Drawing.Point(26, 326);
+			this.samleRateLabel.Location = new System.Drawing.Point(26, 295);
 			this.samleRateLabel.Name = "samleRateLabel";
 			this.samleRateLabel.Size = new System.Drawing.Size(66, 13);
 			this.samleRateLabel.TabIndex = 3;
@@ -81,7 +82,7 @@ namespace PortAudioSharp.PortAudioSharp
 			// 
 			this.driverTypeLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
 			this.driverTypeLabel.AutoSize = true;
-			this.driverTypeLabel.Location = new System.Drawing.Point(3, 11);
+			this.driverTypeLabel.Location = new System.Drawing.Point(3, 26);
 			this.driverTypeLabel.Name = "driverTypeLabel";
 			this.driverTypeLabel.Size = new System.Drawing.Size(89, 13);
 			this.driverTypeLabel.TabIndex = 0;
@@ -92,7 +93,7 @@ namespace PortAudioSharp.PortAudioSharp
 			this.driverTypeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.driverTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.driverTypeComboBox.FormattingEnabled = true;
-			this.driverTypeComboBox.Location = new System.Drawing.Point(98, 7);
+			this.driverTypeComboBox.Location = new System.Drawing.Point(98, 22);
 			this.driverTypeComboBox.Name = "driverTypeComboBox";
 			this.driverTypeComboBox.Size = new System.Drawing.Size(269, 21);
 			this.driverTypeComboBox.TabIndex = 1;
@@ -103,7 +104,7 @@ namespace PortAudioSharp.PortAudioSharp
 			this.sampleRateComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.sampleRateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.sampleRateComboBox.FormattingEnabled = true;
-			this.sampleRateComboBox.Location = new System.Drawing.Point(98, 322);
+			this.sampleRateComboBox.Location = new System.Drawing.Point(98, 291);
 			this.sampleRateComboBox.Name = "sampleRateComboBox";
 			this.sampleRateComboBox.Size = new System.Drawing.Size(269, 21);
 			this.sampleRateComboBox.TabIndex = 4;
@@ -113,9 +114,9 @@ namespace PortAudioSharp.PortAudioSharp
 			this.audioSettingsPanel.AutoSize = true;
 			this.audioSettingsPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.audioSettingsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.audioSettingsPanel.Location = new System.Drawing.Point(98, 38);
+			this.audioSettingsPanel.Location = new System.Drawing.Point(98, 68);
 			this.audioSettingsPanel.Name = "audioSettingsPanel";
-			this.audioSettingsPanel.Size = new System.Drawing.Size(269, 274);
+			this.audioSettingsPanel.Size = new System.Drawing.Size(269, 198);
 			this.audioSettingsPanel.TabIndex = 5;
 			// 
 			// AudioSettingsControl
@@ -126,7 +127,7 @@ namespace PortAudioSharp.PortAudioSharp
 			this.Controls.Add(this.audioSettingsTableLayoutPanel);
 			this.Margin = new System.Windows.Forms.Padding(0);
 			this.Name = "AudioSettingsControl";
-			this.Size = new System.Drawing.Size(370, 350);
+			this.Size = new System.Drawing.Size(370, 334);
 			this.Load += new System.EventHandler(this.AudioSettingsControlLoad);
 			this.audioSettingsTableLayoutPanel.ResumeLayout(false);
 			this.audioSettingsTableLayoutPanel.PerformLayout();

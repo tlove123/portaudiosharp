@@ -31,24 +31,7 @@ namespace PortAudioSharp.PortAudioSharp
 			//
 		}
 		
-		class HostApiItem 
-		{
-			private PortAudio.PaHostApiInfo hostApiInfo;
-			
-			public PortAudio.PaHostApiInfo HostApiInfo {
-				get { return hostApiInfo; }
-				set { hostApiInfo = value; }
-			}
-			
-			public HostApiItem(PortAudio.PaHostApiInfo hostApiInfo) {
-				this.hostApiInfo = hostApiInfo;
-			}
-			
-			public override string ToString()
-			{
-				return hostApiInfo.name;
-			}
-		}
+		
 		
 		void AudioSettingsControlLoad(object sender, EventArgs e)
 		{
@@ -70,18 +53,7 @@ namespace PortAudioSharp.PortAudioSharp
 			HostApiItem selectedItem = (HostApiItem) driverTypeComboBox.SelectedItem;
 			Console.Out.WriteLine(selectedItem.HostApiInfo.name);
 			audioSettingsPanel.Controls.Clear();
-			switch(selectedItem.HostApiInfo.type) {
-				case PortAudio.PaHostApiTypeId.paMME:
-					audioSettingsPanel.Controls.Add(new MMEDeviceControl());
-					break;
-				case PortAudio.PaHostApiTypeId.paDirectSound:
-					audioSettingsPanel.Controls.Add(new DirectSoundDeviceControl());
-					break;
-				case PortAudio.PaHostApiTypeId.paASIO:
-					audioSettingsPanel.Controls.Add(new ASIODeviceControl());
-					break;
-			}
-			
+			audioSettingsPanel.Controls.Add(selectedItem.HostApiDeviceControl);
 		}
 	
 	}
