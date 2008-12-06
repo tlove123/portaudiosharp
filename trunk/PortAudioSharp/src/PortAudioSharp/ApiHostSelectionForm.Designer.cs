@@ -53,9 +53,9 @@ namespace PortAudioSharp
 			this.settingsTableLayoutPanel.Location = new System.Drawing.Point(10, 10);
 			this.settingsTableLayoutPanel.Name = "settingsTableLayoutPanel";
 			this.settingsTableLayoutPanel.RowCount = 2;
-			this.settingsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 340F));
+			this.settingsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 296F));
 			this.settingsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.settingsTableLayoutPanel.Size = new System.Drawing.Size(359, 376);
+			this.settingsTableLayoutPanel.Size = new System.Drawing.Size(359, 332);
 			this.settingsTableLayoutPanel.TabIndex = 0;
 			// 
 			// flowLayoutPanel1
@@ -64,7 +64,7 @@ namespace PortAudioSharp
 			this.flowLayoutPanel1.Controls.Add(this.okButton);
 			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 343);
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 299);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
 			this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.flowLayoutPanel1.Size = new System.Drawing.Size(353, 30);
@@ -94,7 +94,7 @@ namespace PortAudioSharp
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSize = true;
-			this.ClientSize = new System.Drawing.Size(379, 396);
+			this.ClientSize = new System.Drawing.Size(379, 352);
 			this.Controls.Add(this.settingsTableLayoutPanel);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Name = "ApiHostSelectionForm";

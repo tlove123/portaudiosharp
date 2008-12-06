@@ -36,52 +36,29 @@ namespace PortAudioSharp.PortAudioSharp
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.dsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-			this.inputGroupBox = new System.Windows.Forms.GroupBox();
+			this.settingsGroupBox = new System.Windows.Forms.GroupBox();
 			this.inputTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
 			this.inputDeviceComboBox = new System.Windows.Forms.ComboBox();
-			this.inputBufferComboBox = new System.Windows.Forms.ComboBox();
-			this.inputDeviceLabel = new System.Windows.Forms.Label();
-			this.inputBufferLabel = new System.Windows.Forms.Label();
-			this.outputGroupBox = new System.Windows.Forms.GroupBox();
-			this.outputTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
 			this.outputDeviceComboBox = new System.Windows.Forms.ComboBox();
-			this.outputBufferComboBox = new System.Windows.Forms.ComboBox();
+			this.inputDeviceLabel = new System.Windows.Forms.Label();
 			this.outputDeviceLabel = new System.Windows.Forms.Label();
-			this.outputBufferLabel = new System.Windows.Forms.Label();
-			this.dsTableLayoutPanel.SuspendLayout();
-			this.inputGroupBox.SuspendLayout();
+			this.bufferSizeComboBox = new System.Windows.Forms.ComboBox();
+			this.bufferSizeLabel = new System.Windows.Forms.Label();
+			this.settingsGroupBox.SuspendLayout();
 			this.inputTableLayoutPanel.SuspendLayout();
-			this.outputGroupBox.SuspendLayout();
-			this.outputTableLayoutPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// dsTableLayoutPanel
+			// settingsGroupBox
 			// 
-			this.dsTableLayoutPanel.ColumnCount = 1;
-			this.dsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.dsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.dsTableLayoutPanel.Controls.Add(this.outputGroupBox, 0, 1);
-			this.dsTableLayoutPanel.Controls.Add(this.inputGroupBox, 0, 0);
-			this.dsTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dsTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-			this.dsTableLayoutPanel.Name = "dsTableLayoutPanel";
-			this.dsTableLayoutPanel.RowCount = 2;
-			this.dsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.dsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.dsTableLayoutPanel.Size = new System.Drawing.Size(250, 270);
-			this.dsTableLayoutPanel.TabIndex = 0;
-			// 
-			// inputGroupBox
-			// 
-			this.inputGroupBox.Controls.Add(this.inputTableLayoutPanel);
-			this.inputGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.inputGroupBox.Location = new System.Drawing.Point(3, 3);
-			this.inputGroupBox.Name = "inputGroupBox";
-			this.inputGroupBox.Size = new System.Drawing.Size(244, 129);
-			this.inputGroupBox.TabIndex = 1;
-			this.inputGroupBox.TabStop = false;
-			this.inputGroupBox.Text = "DirectSound input settings";
+			this.settingsGroupBox.AutoSize = true;
+			this.settingsGroupBox.Controls.Add(this.inputTableLayoutPanel);
+			this.settingsGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.settingsGroupBox.Location = new System.Drawing.Point(0, 0);
+			this.settingsGroupBox.Name = "settingsGroupBox";
+			this.settingsGroupBox.Size = new System.Drawing.Size(250, 195);
+			this.settingsGroupBox.TabIndex = 2;
+			this.settingsGroupBox.TabStop = false;
+			this.settingsGroupBox.Text = "DirectSound settings";
 			// 
 			// inputTableLayoutPanel
 			// 
@@ -90,40 +67,46 @@ namespace PortAudioSharp.PortAudioSharp
 			this.inputTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.inputTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
 			this.inputTableLayoutPanel.Controls.Add(this.inputDeviceComboBox, 1, 1);
-			this.inputTableLayoutPanel.Controls.Add(this.inputBufferComboBox, 1, 3);
+			this.inputTableLayoutPanel.Controls.Add(this.outputDeviceComboBox, 1, 3);
 			this.inputTableLayoutPanel.Controls.Add(this.inputDeviceLabel, 1, 0);
-			this.inputTableLayoutPanel.Controls.Add(this.inputBufferLabel, 1, 2);
+			this.inputTableLayoutPanel.Controls.Add(this.outputDeviceLabel, 1, 2);
+			this.inputTableLayoutPanel.Controls.Add(this.bufferSizeComboBox, 1, 5);
+			this.inputTableLayoutPanel.Controls.Add(this.bufferSizeLabel, 1, 4);
 			this.inputTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.inputTableLayoutPanel.Location = new System.Drawing.Point(3, 16);
 			this.inputTableLayoutPanel.Name = "inputTableLayoutPanel";
-			this.inputTableLayoutPanel.RowCount = 5;
-			this.inputTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-			this.inputTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-			this.inputTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-			this.inputTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-			this.inputTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-			this.inputTableLayoutPanel.Size = new System.Drawing.Size(238, 110);
+			this.inputTableLayoutPanel.RowCount = 7;
+			this.inputTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+			this.inputTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+			this.inputTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+			this.inputTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+			this.inputTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+			this.inputTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+			this.inputTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 4F));
+			this.inputTableLayoutPanel.Size = new System.Drawing.Size(244, 176);
 			this.inputTableLayoutPanel.TabIndex = 0;
 			// 
 			// inputDeviceComboBox
 			// 
 			this.inputDeviceComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
+			this.inputDeviceComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.inputDeviceComboBox.FormattingEnabled = true;
 			this.inputDeviceComboBox.Location = new System.Drawing.Point(18, 29);
 			this.inputDeviceComboBox.Name = "inputDeviceComboBox";
-			this.inputDeviceComboBox.Size = new System.Drawing.Size(202, 21);
+			this.inputDeviceComboBox.Size = new System.Drawing.Size(208, 21);
 			this.inputDeviceComboBox.TabIndex = 1;
 			// 
-			// inputBufferComboBox
+			// outputDeviceComboBox
 			// 
-			this.inputBufferComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.outputDeviceComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
-			this.inputBufferComboBox.FormattingEnabled = true;
-			this.inputBufferComboBox.Location = new System.Drawing.Point(18, 81);
-			this.inputBufferComboBox.Name = "inputBufferComboBox";
-			this.inputBufferComboBox.Size = new System.Drawing.Size(202, 21);
-			this.inputBufferComboBox.TabIndex = 2;
+			this.outputDeviceComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.outputDeviceComboBox.FormattingEnabled = true;
+			this.outputDeviceComboBox.Location = new System.Drawing.Point(18, 81);
+			this.outputDeviceComboBox.Name = "outputDeviceComboBox";
+			this.outputDeviceComboBox.Size = new System.Drawing.Size(208, 21);
+			this.outputDeviceComboBox.TabIndex = 2;
 			// 
 			// inputDeviceLabel
 			// 
@@ -131,119 +114,61 @@ namespace PortAudioSharp.PortAudioSharp
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.inputDeviceLabel.Location = new System.Drawing.Point(18, 8);
 			this.inputDeviceLabel.Name = "inputDeviceLabel";
-			this.inputDeviceLabel.Size = new System.Drawing.Size(202, 18);
+			this.inputDeviceLabel.Size = new System.Drawing.Size(208, 18);
 			this.inputDeviceLabel.TabIndex = 3;
-			this.inputDeviceLabel.Text = "Device:";
-			// 
-			// inputBufferLabel
-			// 
-			this.inputBufferLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-									| System.Windows.Forms.AnchorStyles.Right)));
-			this.inputBufferLabel.Location = new System.Drawing.Point(18, 60);
-			this.inputBufferLabel.Name = "inputBufferLabel";
-			this.inputBufferLabel.Size = new System.Drawing.Size(202, 18);
-			this.inputBufferLabel.TabIndex = 4;
-			this.inputBufferLabel.Text = "Buffer size (samples):";
-			// 
-			// outputGroupBox
-			// 
-			this.outputGroupBox.Controls.Add(this.outputTableLayoutPanel);
-			this.outputGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.outputGroupBox.Location = new System.Drawing.Point(3, 138);
-			this.outputGroupBox.Name = "outputGroupBox";
-			this.outputGroupBox.Size = new System.Drawing.Size(244, 129);
-			this.outputGroupBox.TabIndex = 2;
-			this.outputGroupBox.TabStop = false;
-			this.outputGroupBox.Text = "DirectSound output settings";
-			// 
-			// outputTableLayoutPanel
-			// 
-			this.outputTableLayoutPanel.ColumnCount = 3;
-			this.outputTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
-			this.outputTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.outputTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
-			this.outputTableLayoutPanel.Controls.Add(this.outputDeviceComboBox, 1, 1);
-			this.outputTableLayoutPanel.Controls.Add(this.outputBufferComboBox, 1, 3);
-			this.outputTableLayoutPanel.Controls.Add(this.outputDeviceLabel, 1, 0);
-			this.outputTableLayoutPanel.Controls.Add(this.outputBufferLabel, 1, 2);
-			this.outputTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.outputTableLayoutPanel.Location = new System.Drawing.Point(3, 16);
-			this.outputTableLayoutPanel.Name = "outputTableLayoutPanel";
-			this.outputTableLayoutPanel.RowCount = 5;
-			this.outputTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-			this.outputTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-			this.outputTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-			this.outputTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-			this.outputTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-			this.outputTableLayoutPanel.Size = new System.Drawing.Size(238, 110);
-			this.outputTableLayoutPanel.TabIndex = 0;
-			// 
-			// outputDeviceComboBox
-			// 
-			this.outputDeviceComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-									| System.Windows.Forms.AnchorStyles.Right)));
-			this.outputDeviceComboBox.FormattingEnabled = true;
-			this.outputDeviceComboBox.Location = new System.Drawing.Point(18, 29);
-			this.outputDeviceComboBox.Name = "outputDeviceComboBox";
-			this.outputDeviceComboBox.Size = new System.Drawing.Size(202, 21);
-			this.outputDeviceComboBox.TabIndex = 1;
-			// 
-			// outputBufferComboBox
-			// 
-			this.outputBufferComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-									| System.Windows.Forms.AnchorStyles.Right)));
-			this.outputBufferComboBox.FormattingEnabled = true;
-			this.outputBufferComboBox.Location = new System.Drawing.Point(18, 81);
-			this.outputBufferComboBox.Name = "outputBufferComboBox";
-			this.outputBufferComboBox.Size = new System.Drawing.Size(202, 21);
-			this.outputBufferComboBox.TabIndex = 2;
+			this.inputDeviceLabel.Text = "Input device:";
 			// 
 			// outputDeviceLabel
 			// 
 			this.outputDeviceLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
-			this.outputDeviceLabel.Location = new System.Drawing.Point(18, 8);
+			this.outputDeviceLabel.Location = new System.Drawing.Point(18, 60);
 			this.outputDeviceLabel.Name = "outputDeviceLabel";
-			this.outputDeviceLabel.Size = new System.Drawing.Size(202, 18);
-			this.outputDeviceLabel.TabIndex = 3;
-			this.outputDeviceLabel.Text = "Device:";
+			this.outputDeviceLabel.Size = new System.Drawing.Size(208, 18);
+			this.outputDeviceLabel.TabIndex = 4;
+			this.outputDeviceLabel.Text = "Output device:";
 			// 
-			// outputBufferLabel
+			// bufferSizeComboBox
 			// 
-			this.outputBufferLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+			this.bufferSizeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
-			this.outputBufferLabel.Location = new System.Drawing.Point(18, 60);
-			this.outputBufferLabel.Name = "outputBufferLabel";
-			this.outputBufferLabel.Size = new System.Drawing.Size(202, 18);
-			this.outputBufferLabel.TabIndex = 4;
-			this.outputBufferLabel.Text = "Buffer size (samples):";
+			this.bufferSizeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.bufferSizeComboBox.FormattingEnabled = true;
+			this.bufferSizeComboBox.Location = new System.Drawing.Point(18, 133);
+			this.bufferSizeComboBox.Name = "bufferSizeComboBox";
+			this.bufferSizeComboBox.Size = new System.Drawing.Size(208, 21);
+			this.bufferSizeComboBox.TabIndex = 5;
+			// 
+			// bufferSizeLabel
+			// 
+			this.bufferSizeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
+			this.bufferSizeLabel.Location = new System.Drawing.Point(18, 112);
+			this.bufferSizeLabel.Name = "bufferSizeLabel";
+			this.bufferSizeLabel.Size = new System.Drawing.Size(208, 18);
+			this.bufferSizeLabel.TabIndex = 6;
+			this.bufferSizeLabel.Text = "Buffer size (samples):";
 			// 
 			// DirectSoundDeviceControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Controls.Add(this.dsTableLayoutPanel);
+			this.Controls.Add(this.settingsGroupBox);
 			this.Name = "DirectSoundDeviceControl";
-			this.Size = new System.Drawing.Size(250, 270);
-			this.dsTableLayoutPanel.ResumeLayout(false);
-			this.inputGroupBox.ResumeLayout(false);
+			this.Size = new System.Drawing.Size(250, 195);
+			this.Load += new System.EventHandler(this.DirectSoundDeviceControlLoad);
+			this.settingsGroupBox.ResumeLayout(false);
 			this.inputTableLayoutPanel.ResumeLayout(false);
-			this.outputGroupBox.ResumeLayout(false);
-			this.outputTableLayoutPanel.ResumeLayout(false);
 			this.ResumeLayout(false);
+			this.PerformLayout();
 		}
-		private System.Windows.Forms.Label inputBufferLabel;
+		private System.Windows.Forms.GroupBox settingsGroupBox;
+		private System.Windows.Forms.Label bufferSizeLabel;
+		private System.Windows.Forms.ComboBox bufferSizeComboBox;
+		private System.Windows.Forms.ComboBox outputDeviceComboBox;
+		private System.Windows.Forms.Label outputDeviceLabel;
 		private System.Windows.Forms.Label inputDeviceLabel;
-		private System.Windows.Forms.ComboBox inputBufferComboBox;
 		private System.Windows.Forms.ComboBox inputDeviceComboBox;
 		private System.Windows.Forms.TableLayoutPanel inputTableLayoutPanel;
-		private System.Windows.Forms.GroupBox inputGroupBox;
-		private System.Windows.Forms.Label outputBufferLabel;
-		private System.Windows.Forms.Label outputDeviceLabel;
-		private System.Windows.Forms.ComboBox outputBufferComboBox;
-		private System.Windows.Forms.ComboBox outputDeviceComboBox;
-		private System.Windows.Forms.TableLayoutPanel outputTableLayoutPanel;
-		private System.Windows.Forms.GroupBox outputGroupBox;
-		private System.Windows.Forms.TableLayoutPanel dsTableLayoutPanel;
 	}
 }

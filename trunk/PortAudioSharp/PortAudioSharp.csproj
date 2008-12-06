@@ -58,10 +58,12 @@
     <Compile Include="src\PortAudioSharp\AudioSettingsControl.Designer.cs">
       <DependentUpon>AudioSettingsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\PortAudioSharp\DeviceItem.cs" />
     <Compile Include="src\PortAudioSharp\DirectSoundDeviceControl.cs" />
     <Compile Include="src\PortAudioSharp\DirectSoundDeviceControl.Designer.cs">
       <DependentUpon>DirectSoundDeviceControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\PortAudioSharp\HostApiItem.cs" />
     <Compile Include="src\PortAudioSharp\MMEDeviceControl.cs" />
     <Compile Include="src\PortAudioSharp\MMEDeviceControl.Designer.cs">
       <DependentUpon>MMEDeviceControl.cs</DependentUpon>
