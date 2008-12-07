@@ -37,7 +37,7 @@ namespace PortAudioSharp.PortAudioSharp
 		private void InitializeComponent()
 		{
 			this.audioSettingsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-			this.samleRateLabel = new System.Windows.Forms.Label();
+			this.sampleRateLabel = new System.Windows.Forms.Label();
 			this.driverTypeLabel = new System.Windows.Forms.Label();
 			this.driverTypeComboBox = new System.Windows.Forms.ComboBox();
 			this.sampleRateComboBox = new System.Windows.Forms.ComboBox();
@@ -51,8 +51,8 @@ namespace PortAudioSharp.PortAudioSharp
 			this.audioSettingsTableLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.audioSettingsTableLayoutPanel.ColumnCount = 2;
 			this.audioSettingsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.audioSettingsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 260F));
-			this.audioSettingsTableLayoutPanel.Controls.Add(this.samleRateLabel, 0, 2);
+			this.audioSettingsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 256F));
+			this.audioSettingsTableLayoutPanel.Controls.Add(this.sampleRateLabel, 0, 2);
 			this.audioSettingsTableLayoutPanel.Controls.Add(this.driverTypeLabel, 0, 0);
 			this.audioSettingsTableLayoutPanel.Controls.Add(this.driverTypeComboBox, 1, 0);
 			this.audioSettingsTableLayoutPanel.Controls.Add(this.sampleRateComboBox, 1, 2);
@@ -68,15 +68,15 @@ namespace PortAudioSharp.PortAudioSharp
 			this.audioSettingsTableLayoutPanel.Size = new System.Drawing.Size(370, 334);
 			this.audioSettingsTableLayoutPanel.TabIndex = 2;
 			// 
-			// samleRateLabel
+			// sampleRateLabel
 			// 
-			this.samleRateLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-			this.samleRateLabel.AutoSize = true;
-			this.samleRateLabel.Location = new System.Drawing.Point(26, 295);
-			this.samleRateLabel.Name = "samleRateLabel";
-			this.samleRateLabel.Size = new System.Drawing.Size(66, 13);
-			this.samleRateLabel.TabIndex = 3;
-			this.samleRateLabel.Text = "Sample rate:";
+			this.sampleRateLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+			this.sampleRateLabel.AutoSize = true;
+			this.sampleRateLabel.Location = new System.Drawing.Point(26, 295);
+			this.sampleRateLabel.Name = "sampleRateLabel";
+			this.sampleRateLabel.Size = new System.Drawing.Size(66, 13);
+			this.sampleRateLabel.TabIndex = 3;
+			this.sampleRateLabel.Text = "Sample rate:";
 			// 
 			// driverTypeLabel
 			// 
@@ -134,11 +134,11 @@ namespace PortAudioSharp.PortAudioSharp
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Label sampleRateLabel;
 		private System.Windows.Forms.Panel audioSettingsPanel;
 		private System.Windows.Forms.TableLayoutPanel audioSettingsTableLayoutPanel;
 		private System.Windows.Forms.ComboBox sampleRateComboBox;
 		private System.Windows.Forms.ComboBox driverTypeComboBox;
 		private System.Windows.Forms.Label driverTypeLabel;
-		private System.Windows.Forms.Label samleRateLabel;
 	}
 }

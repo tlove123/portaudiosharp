@@ -44,12 +44,9 @@ namespace PortAudioSharp.PortAudioSharp
 			//
 		}
 		
-		
-		
 		void AudioSettingsControlLoad(object sender, EventArgs e)
 		{
 			driverTypeComboBox.Items.Clear();
-			
 			int hostApiCount = PortAudio.Pa_GetHostApiCount();
 			for (int i = 0; i < hostApiCount; i++) {
 				PortAudio.PaHostApiInfo hostApiInfo = PortAudio.Pa_GetHostApiInfo(i);
@@ -57,14 +54,33 @@ namespace PortAudioSharp.PortAudioSharp
 					driverTypeComboBox.Items.Add(new HostApiItem(hostApiInfo));
 				}
 			}
-			
 			driverTypeComboBox.SelectedIndex = PortAudio.Pa_GetDefaultHostApi();
+			
+			sampleRateComboBox.Items.Clear();
+			sampleRateComboBox.Items.Add(192000);
+			sampleRateComboBox.Items.Add(176400);
+			sampleRateComboBox.Items.Add(96000);
+			sampleRateComboBox.Items.Add(88200);
+			sampleRateComboBox.Items.Add(48000);
+			sampleRateComboBox.Items.Add(44100);
+			sampleRateComboBox.Items.Add(38400);
+			sampleRateComboBox.Items.Add(37800);
+			sampleRateComboBox.Items.Add(32000);
+			sampleRateComboBox.Items.Add(24000);
+			sampleRateComboBox.Items.Add(22050);
+			sampleRateComboBox.Items.Add(19200);
+			sampleRateComboBox.Items.Add(18900);
+			sampleRateComboBox.Items.Add(16000);
+			sampleRateComboBox.Items.Add(12000);
+			sampleRateComboBox.Items.Add(11025);
+			sampleRateComboBox.Items.Add(9600);
+			sampleRateComboBox.Items.Add(8000);
+			sampleRateComboBox.SelectedIndex = 5;
 		}
 		
 		void DriverTypeComboBoxSelectedIndexChanged(object sender, EventArgs e)
 		{
 			HostApiItem selectedItem = (HostApiItem) driverTypeComboBox.SelectedItem;
-			Console.Out.WriteLine(selectedItem.HostApiInfo.name);
 			audioSettingsPanel.Controls.Clear();
 			audioSettingsPanel.Controls.Add(selectedItem.HostApiDeviceControl);
 		}
