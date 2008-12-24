@@ -23,24 +23,33 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace PortAudioSharp
 {
-	/// <summary>
-	/// Description of ApiHostSelectionForm.
-	/// </summary>
 	public partial class ApiHostSelectionForm : Form
 	{
+		/**
+		 * <...>
+		 *   <ApiHost id="0" name="MME" sampleRate="44100">
+		 *     <InputDevice id="2" name="Bla bla" />
+		 *     <OutputDevice id="4" name="Ble ble" />
+		 *     <Buffer size="512" />
+		 *   </ApiHost>
+		 * </...>
+		 */
+		private XmlElement apiHostConfigElement;
+		
+		public XmlElement ApiHostConfigElement {
+			set { apiHostConfigElement = value; }
+			get { return apiHostConfigElement; }
+		}
+			
 		public ApiHostSelectionForm()
 		{
-			//
-			// The InitializeComponent() call is required for Windows Forms designer support.
-			//
+			apiHostConfigElement = null;
 			InitializeComponent();
-			
-			//
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
 		}
+		
 	}
 }
