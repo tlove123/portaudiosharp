@@ -23,6 +23,7 @@
 using System;
 using System.Reflection;
 using System.Windows.Forms;
+using System.Xml;
 
 using PortAudioSharp;
 
@@ -46,13 +47,28 @@ namespace PortAudioSharpTest
 				+ " (" + PortAudio.Pa_GetVersion() + ")");
 			Console.WriteLine(); 
 			
-			PortAudio.Pa_Initialize();
-			
-			Application.EnableVisualStyles();
-			
-			Application.Run(new ApiHostSelectionForm());
-			
-			PortAudio.Pa_Terminate();
+			try {
+				
+				PortAudio.Pa_Initialize();
+				
+				Application.EnableVisualStyles();
+				
+				XmlDocument doc = new XmlDocument();
+				XmlElement elem = doc.CreateElement("Config");
+				elem.AppendChild(doc.CreateTextNode("ciao"));
+				doc.AppendChild(elem);
+				
+				ApiHostSelectionForm apiHostSelectionForm = new ApiHostSelectionForm();
+				apiHostSelectionForm.ApiHostConfigElement = elem;
+				
+				apiHostSelectionForm.ShowDialog();
+				
+			} catch (Exception e) {
+				Console.Error.WriteLine(e);
+				Console.Read();
+			} finally {
+				PortAudio.Pa_Terminate();
+			}
 		}
 	}
 
