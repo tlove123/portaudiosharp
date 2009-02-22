@@ -30,7 +30,7 @@ namespace PortAudioSharp {
 			PortAudio v.19 bindings for .NET
 		</summary>
 	*/
-	public class PortAudio
+	public partial class PortAudio
 	{	
 	    #region **** PORTAUDIO CALLBACKS ****
 	    
@@ -247,7 +247,7 @@ namespace PortAudioSharp {
 		    paIncompatibleStreamHostApi,
 		    paBadBufferPtr
   		}
-
+		
 		public enum PaHostApiTypeId : uint {
   			paInDevelopment=0,
 		    paDirectSound=1,
@@ -311,7 +311,7 @@ namespace PortAudioSharp {
 	 	
 	 	public static PaHostApiInfo Pa_GetHostApiInfo(int hostApi) {
 	 		IntPtr structptr = IntPtr_Pa_GetHostApiInfo(hostApi);
-	 		return (PaHostApiInfo) Marshal.PtrToStructure(structptr,typeof(PaHostApiInfo));
+	 		return (PaHostApiInfo) Marshal.PtrToStructure(structptr, typeof(PaHostApiInfo));
 	 	}
 		
 		[DllImport ("PortAudio.dll")]
@@ -325,7 +325,7 @@ namespace PortAudioSharp {
 	 	
 	 	public static PaHostErrorInfo Pa_GetLastHostErrorInfo() {
 	 		IntPtr structptr = IntPtr_Pa_GetLastHostErrorInfo();
-	 		return (PaHostErrorInfo) Marshal.PtrToStructure(structptr,typeof(PaHostErrorInfo));
+	 		return (PaHostErrorInfo) Marshal.PtrToStructure(structptr, typeof(PaHostErrorInfo));
 	 	}
 
 		[DllImport ("PortAudio.dll")]
@@ -342,7 +342,7 @@ namespace PortAudioSharp {
 	 	
 	 	public static PaDeviceInfo Pa_GetDeviceInfo(int device) {
 	 		IntPtr structptr = IntPtr_Pa_GetDeviceInfo(device);
-	 		return (PaDeviceInfo) Marshal.PtrToStructure(structptr,typeof(PaDeviceInfo));
+	 		return (PaDeviceInfo) Marshal.PtrToStructure(structptr, typeof(PaDeviceInfo));
 	 	}
 		
 		[DllImport ("PortAudio.dll")]

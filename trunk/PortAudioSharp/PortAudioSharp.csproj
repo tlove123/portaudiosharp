@@ -69,6 +69,7 @@
     <Compile Include="src\PortAudioSharp\MMEDeviceControl.Designer.cs">
       <DependentUpon>MMEDeviceControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\PortAudioSharp\PortAudioASIO.cs" />
     <Compile Include="src\PortAudioSharp\PortAudio.cs" />
     <Compile Include="src\PortAudioSharp\ASIODeviceControl.cs" />
     <Compile Include="src\PortAudioSharp\ASIODeviceControl.Designer.cs">
