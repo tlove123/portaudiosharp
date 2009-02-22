@@ -60,13 +60,13 @@ namespace PortAudioSharp.PortAudioSharp
 				if (paHostApi.type == PortAudio.PaHostApiTypeId.paMME) {
 					Console.WriteLine("\n#" + i + "\n" + paDeviceInfo);
 					if (paDeviceInfo.maxInputChannels > 0) {
-						inputDeviceComboBox.Items.Add(new DeviceItem(paDeviceInfo));
+						inputDeviceComboBox.Items.Add(new DeviceItem(i, paDeviceInfo));
 						if (i == paHostApiInfo.defaultInputDevice) { 
 							inputDeviceComboBox.SelectedIndex = inputDeviceComboBox.Items.Count - 1;
 						}
 					}
 					if (paDeviceInfo.maxOutputChannels > 0) {
-						outputDeviceComboBox.Items.Add(new DeviceItem(paDeviceInfo));
+						outputDeviceComboBox.Items.Add(new DeviceItem(i, paDeviceInfo));
 						if (i == paHostApiInfo.defaultOutputDevice) { 
 							outputDeviceComboBox.SelectedIndex = outputDeviceComboBox.Items.Count - 1;
 						}

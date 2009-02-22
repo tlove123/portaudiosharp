@@ -27,15 +27,22 @@ namespace PortAudioSharp.PortAudioSharp
 
 	public class DeviceItem
 	{
+		private int deviceIndex;
 		private PortAudio.PaDeviceInfo deviceInfo;
+		
+		public int DeviceIndex
+		{
+			get { return deviceIndex; }
+		}
 		
 		public PortAudio.PaDeviceInfo DeviceInfo 
 		{
 			get { return deviceInfo; }
 		}
 			
-		public DeviceItem(PortAudio.PaDeviceInfo deviceInfo) 
+		public DeviceItem(int deviceIndex, PortAudio.PaDeviceInfo deviceInfo) 
 		{
+			this.deviceIndex = deviceIndex;
 			this.deviceInfo = deviceInfo;
 		}
 		

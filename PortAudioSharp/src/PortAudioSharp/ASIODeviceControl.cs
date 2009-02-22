@@ -59,7 +59,7 @@ namespace PortAudioSharp.PortAudioSharp
 				if (paHostApi.type == PortAudio.PaHostApiTypeId.paASIO) {
 					Console.WriteLine("\n#" + i + "\n" + paDeviceInfo);
 					if (paDeviceInfo.maxOutputChannels > 0) {
-						deviceComboBox.Items.Add(new DeviceItem(paDeviceInfo));
+						deviceComboBox.Items.Add(new DeviceItem(i, paDeviceInfo));
 						if (i == paHostApiInfo.defaultOutputDevice) { 
 							deviceComboBox.SelectedIndex = deviceComboBox.Items.Count - 1;
 						}
@@ -73,7 +73,13 @@ namespace PortAudioSharp.PortAudioSharp
 				bufferSizeComboBox.Items.Add(bufferSize);
 				bufferSize *= 2;
 			}
-			bufferSizeComboBox.SelectedIndex =2;
+			bufferSizeComboBox.SelectedIndex = 2;
+		}
+		
+		void DeviceSettingsButtonClick(object sender, EventArgs e)
+		{
+			DeviceItem deviceItem = (DeviceItem) deviceComboBox.Items[deviceComboBox.SelectedIndex];
+			PortAudio.PaAsio_ShowControlPanel(deviceItem.DeviceIndex, new IntPtr(this.Handle.ToInt64()));
 		}
 	}
 }

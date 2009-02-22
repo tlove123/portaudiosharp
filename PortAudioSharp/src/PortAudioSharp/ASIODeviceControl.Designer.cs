@@ -93,6 +93,7 @@ namespace PortAudioSharp.PortAudioSharp
 			this.deviceSettingsButton.TabIndex = 0;
 			this.deviceSettingsButton.Text = "Device settings...";
 			this.deviceSettingsButton.UseVisualStyleBackColor = true;
+			this.deviceSettingsButton.Click += new System.EventHandler(this.DeviceSettingsButtonClick);
 			// 
 			// deviceComboBox
 			// 
