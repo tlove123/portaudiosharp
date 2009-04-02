@@ -32,7 +32,7 @@ namespace PortAudioSharp {
 	*/
 	public class Audio : IDisposable {
 	
-		private int channels,frequency;
+		private int inputChannels, outputChannels, frequency;
 		private uint framesPerBuffer;
 		private PortAudio.PaStreamCallbackDelegate paStreamCallback;
 		private int hostApi;
@@ -47,10 +47,11 @@ namespace PortAudioSharp {
 	 		set { loggingEnabled = value; }
 	 	}
 	 	
-	 	public Audio(int channels, int frequency, uint framesPerBuffer,
+	 	public Audio(int inputChannels, int outputChannels, int frequency, uint framesPerBuffer,
 	 		PortAudio.PaStreamCallbackDelegate paStreamCallback) {
 	 		log("Initializing...");
-	 		this.channels = channels;
+	 		this.inputChannels = inputChannels;
+	 		this.outputChannels = outputChannels;
 	 		this.frequency = frequency;
 	 		this.framesPerBuffer = framesPerBuffer;
 	 		this.paStreamCallback = paStreamCallback;
@@ -76,11 +77,9 @@ namespace PortAudioSharp {
 	 	
 	 	public void Start() {
 	 		log("Starting...");
-	 		this.stream = streamOpen(this.apiInfo.defaultInputDevice,this.channels,
-				this.apiInfo.defaultOutputDevice,this.channels,
+	 		this.stream = streamOpen(this.apiInfo.defaultInputDevice, this.inputChannels,
+				this.apiInfo.defaultOutputDevice,this.outputChannels,
 				this.frequency,this.framesPerBuffer);
-			//this.stream = audio.streamOpen(this.channels,this.channels,
-			//	this.frequency,this.framesPerBuffer);
 			log("Stream pointer: " + stream.ToInt32());
 			streamStart(stream);
 	 	}
