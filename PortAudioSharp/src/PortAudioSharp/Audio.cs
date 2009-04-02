@@ -120,7 +120,7 @@ namespace PortAudioSharp {
 			for (int i = 0; i<apiCount; i++) {
 				PortAudio.PaHostApiInfo apiInfo = PortAudio.Pa_GetHostApiInfo(i);
 				if ((apiInfo.type == PortAudio.PaHostApiTypeId.paDirectSound)
-					|| (apiInfo.type == PortAudio.PaHostApiTypeId.paOSS))
+				    || (apiInfo.type == PortAudio.PaHostApiTypeId.paALSA))
 					selectedHostApi = i;
 			}
 			return selectedHostApi;
@@ -135,12 +135,12 @@ namespace PortAudioSharp {
 	 		inputParams.channelCount = inputChannels;
 	 		inputParams.device = inputDevice;
 	 		inputParams.sampleFormat = PortAudio.PaSampleFormat.paFloat32;
-	 		inputParams.suggestedLatency = 0.0;
+	 		inputParams.suggestedLatency = this.inputDeviceInfo.defaultLowInputLatency;
 	 		PortAudio.PaStreamParameters outputParams = new PortAudio.PaStreamParameters();
 	 		outputParams.channelCount = outputChannels;
 	 		outputParams.device = outputDevice;
 	 		outputParams.sampleFormat = PortAudio.PaSampleFormat.paFloat32;
-	 		outputParams.suggestedLatency = 0.0;
+	 		outputParams.suggestedLatency = this.outputDeviceInfo.defaultLowOutputLatency;
 	 		errorCheck("OpenDefaultStream",PortAudio.Pa_OpenStream(
 			    out stream,
 			    ref inputParams,
