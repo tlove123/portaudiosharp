@@ -72,7 +72,7 @@ namespace PortAudioSharpTest
 			try {
 			
 				Audio.LoggingEnabled = true;
-				audio = new Audio(2,44100,2048,
+				audio = new Audio(1, 2, 44100, 2048,
 					new PortAudio.PaStreamCallbackDelegate(myPaStreamCallback));
 				
 				audio.Start();
