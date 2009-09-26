@@ -46,8 +46,9 @@ namespace PortAudioSharp
 			// 
 			// settingsTableLayoutPanel
 			// 
+			this.settingsTableLayoutPanel.AutoSize = true;
 			this.settingsTableLayoutPanel.ColumnCount = 1;
-			this.settingsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 350F));
+			this.settingsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.settingsTableLayoutPanel.Controls.Add(this.flowLayoutPanel1, 0, 1);
 			this.settingsTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.settingsTableLayoutPanel.Location = new System.Drawing.Point(10, 10);
@@ -55,7 +56,7 @@ namespace PortAudioSharp
 			this.settingsTableLayoutPanel.RowCount = 2;
 			this.settingsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 296F));
 			this.settingsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.settingsTableLayoutPanel.Size = new System.Drawing.Size(359, 332);
+			this.settingsTableLayoutPanel.Size = new System.Drawing.Size(341, 332);
 			this.settingsTableLayoutPanel.TabIndex = 0;
 			// 
 			// flowLayoutPanel1
@@ -94,7 +95,7 @@ namespace PortAudioSharp
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSize = true;
-			this.ClientSize = new System.Drawing.Size(379, 352);
+			this.ClientSize = new System.Drawing.Size(361, 352);
 			this.Controls.Add(this.settingsTableLayoutPanel);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Name = "ApiHostSelectionForm";
@@ -106,6 +107,7 @@ namespace PortAudioSharp
 			this.settingsTableLayoutPanel.ResumeLayout(false);
 			this.flowLayoutPanel1.ResumeLayout(false);
 			this.ResumeLayout(false);
+			this.PerformLayout();
 		}
 		private System.Windows.Forms.TableLayoutPanel settingsTableLayoutPanel;
 		private System.Windows.Forms.Button cancelButton;
