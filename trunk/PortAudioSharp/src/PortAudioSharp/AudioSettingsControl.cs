@@ -84,6 +84,6 @@ namespace PortAudioSharp.PortAudioSharp
 			audioSettingsPanel.Controls.Clear();
 			audioSettingsPanel.Controls.Add(selectedItem.HostApiDeviceControl);
 		}
-	
+
 	}
 }
