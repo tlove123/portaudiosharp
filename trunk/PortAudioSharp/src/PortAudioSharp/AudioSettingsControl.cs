@@ -32,7 +32,9 @@ namespace PortAudioSharp.PortAudioSharp
 	/// </summary>
 	public partial class AudioSettingsControl : UserControl
 	{
-		public AudioSettingsControl()
+		private ApiHostSelectionForm apiHostSelectionForm;
+		
+		public AudioSettingsControl(ApiHostSelectionForm apiHostSelectionForm)
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -42,6 +44,7 @@ namespace PortAudioSharp.PortAudioSharp
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
+			this.apiHostSelectionForm = apiHostSelectionForm;
 		}
 		
 		void AudioSettingsControlLoad(object sender, EventArgs e)
@@ -82,6 +85,7 @@ namespace PortAudioSharp.PortAudioSharp
 		{
 			HostApiItem selectedItem = (HostApiItem) driverTypeComboBox.SelectedItem;
 			audioSettingsPanel.Controls.Clear();
+			apiHostSelectionForm.Valid = !(selectedItem.HostApiDeviceControl is NoDevicesDeviceControl);
 			audioSettingsPanel.Controls.Add(selectedItem.HostApiDeviceControl);
 		}
 

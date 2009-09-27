@@ -38,16 +38,25 @@ namespace PortAudioSharp
 		 *   </ApiHost>
 		 * </...>
 		 */
-		private XmlElement apiHostConfigElement;
+//		private XmlElement apiHostConfigElement;
+		private bool valid;
 		
-		public XmlElement ApiHostConfigElement {
-			set { apiHostConfigElement = value; }
-			get { return apiHostConfigElement; }
+//		public XmlElement ApiHostConfigElement {
+//			set { apiHostConfigElement = value; }
+//			get { return apiHostConfigElement; }
+//		}
+		
+		public bool Valid {
+			set { 
+				valid = value; 
+				this.okButton.Enabled = valid;
+			}
+			get { return valid; }
 		}
 			
 		public ApiHostSelectionForm()
 		{
-			apiHostConfigElement = null;
+//			apiHostConfigElement = null;
 			InitializeComponent();
 		}
 		

@@ -118,9 +118,8 @@ namespace PortAudioSharp
 		
 		void ApiHostSelectionFormLoad(object sender, System.EventArgs e)
 		{
-			audioSettingsControl = new PortAudioSharp.AudioSettingsControl();
+			audioSettingsControl = new PortAudioSharp.AudioSettingsControl(this);
 			this.settingsTableLayoutPanel.Controls.Add(audioSettingsControl, 0, 0);
-			
 		}
 	}
 }
