@@ -44,16 +44,29 @@ namespace PortAudioSharp.PortAudioSharp
 			public HostApiItem(PortAudio.PaHostApiInfo hostApiInfo) 
 			{
 				this.hostApiInfo = hostApiInfo;
-				switch(hostApiInfo.type) {
-				case PortAudio.PaHostApiTypeId.paMME:
-					hostApiDeviceControl = new MMEDeviceControl(hostApiInfo);
-					break;
-				case PortAudio.PaHostApiTypeId.paDirectSound:
-					hostApiDeviceControl = new DirectSoundDeviceControl(hostApiInfo);
-					break;
-				case PortAudio.PaHostApiTypeId.paASIO:
-					hostApiDeviceControl = new ASIODeviceControl(hostApiInfo);
-					break;
+				
+				int deviceCount = PortAudio.Pa_GetDeviceCount();
+				int selectedHostApiDeviceCount = 0;
+				for (int i = 0; i < deviceCount; i++) {
+					PortAudio.PaDeviceInfo paDeviceInfo = PortAudio.Pa_GetDeviceInfo(i);
+					PortAudio.PaHostApiInfo paHostApi = PortAudio.Pa_GetHostApiInfo(paDeviceInfo.hostApi);
+					if (paHostApi.type == hostApiInfo.type) { selectedHostApiDeviceCount++; }
+				}
+				
+				if (selectedHostApiDeviceCount > 0) {
+					switch(hostApiInfo.type) {
+					case PortAudio.PaHostApiTypeId.paMME:
+						hostApiDeviceControl = new MMEDeviceControl(hostApiInfo);
+						break;
+					case PortAudio.PaHostApiTypeId.paDirectSound:
+						hostApiDeviceControl = new DirectSoundDeviceControl(hostApiInfo);
+						break;
+					case PortAudio.PaHostApiTypeId.paASIO:
+						hostApiDeviceControl = new ASIODeviceControl(hostApiInfo);
+						break;
+					}
+				} else {
+					hostApiDeviceControl = new NoDevicesDeviceControl(hostApiInfo);
 				}
 			}
 			

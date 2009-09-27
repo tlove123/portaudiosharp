@@ -69,6 +69,10 @@
     <Compile Include="src\PortAudioSharp\MMEDeviceControl.Designer.cs">
       <DependentUpon>MMEDeviceControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\PortAudioSharp\NoDevicesDeviceControl.cs" />
+    <Compile Include="src\PortAudioSharp\NoDevicesDeviceControl.Designer.cs">
+      <DependentUpon>NoDevicesDeviceControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\PortAudioSharp\PortAudioASIO.cs" />
     <Compile Include="src\PortAudioSharp\PortAudio.cs" />
     <Compile Include="src\PortAudioSharp\ASIODeviceControl.cs" />
@@ -89,6 +93,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\PortAudioSharp\MMEDeviceControl.resx">
       <DependentUpon>MMEDeviceControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\PortAudioSharp\NoDevicesDeviceControl.resx">
+      <DependentUpon>NoDevicesDeviceControl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
 </Project>
