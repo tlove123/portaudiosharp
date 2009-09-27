@@ -1,4 +1,4 @@
- /*
+﻿ /*
   * PortAudioSharp - PortAudio bindings for .NET
   * Copyright 2006, 2007, 2008, 2009 Riccardo Gerosa and individual contributors as indicated
   * by the @authors tag. See the copyright.txt in the distribution for a
@@ -21,50 +21,14 @@
   */
 
 using System;
-using System.Drawing;
-using System.Windows.Forms;
-using System.Xml;
 
 namespace PortAudioSharp
 {
-	public partial class ApiHostSelectionForm : Form, IUpdatableControl
+	/// <summary>
+	/// Description of IUpdatableControl.
+	/// </summary>
+	public interface IUpdatableControl
 	{
-		
-		private AudioSettingsControl audioSettingsControl;
-		private IDeviceControl deviceControl;
-		/**
-		 * <...>
-		 *   <ApiHost id="0" name="MME" sampleRate="44100">
-		 *     <InputDevice id="2" name="Bla bla" />
-		 *     <OutputDevice id="4" name="Ble ble" />
-		 *     <Buffer size="512" />
-		 *   </ApiHost>
-		 * </...>
-		 */
-//		private XmlElement apiHostConfigElement;
-//		private bool valid;
-		
-//		public XmlElement ApiHostConfigElement {
-//			set { apiHostConfigElement = value; }
-//			get { return apiHostConfigElement; }
-//		}
-		
-//		public bool Valid {
-//			set { 
-//				valid = value; 
-//				this.okButton.Enabled = valid;
-//			}
-//			get { return valid; }
-//		}
-			
-		public ApiHostSelectionForm()
-		{
-//			apiHostConfigElement = null;
-			InitializeComponent();
-		}
-		
-		public void update() {
-			okButton.Enabled = deviceControl.Valid;
-		}
+		void update();
 	}
 }

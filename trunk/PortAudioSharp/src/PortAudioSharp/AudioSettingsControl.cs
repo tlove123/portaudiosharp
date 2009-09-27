@@ -1,6 +1,6 @@
  /*
   * PortAudioSharp - PortAudio bindings for .NET
-  * Copyright 2006, 2007, 2008 Riccardo Gerosa and individual contributors as indicated
+  * Copyright 2006, 2007, 2008, 2009 Riccardo Gerosa and individual contributors as indicated
   * by the @authors tag. See the copyright.txt in the distribution for a
   * full listing of individual contributors.
   *
@@ -25,16 +25,38 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace PortAudioSharp.PortAudioSharp
+namespace PortAudioSharp
 {
 	/// <summary>
 	/// Description of AudioSettingsControl.
 	/// </summary>
-	public partial class AudioSettingsControl : UserControl
+	public partial class AudioSettingsControl : UserControl, IDeviceControl, IUpdatableControl
 	{
-		private ApiHostSelectionForm apiHostSelectionForm;
+		private IUpdatableControl updatableControl;
+		private IDeviceControl deviceControl;
 		
-		public AudioSettingsControl(ApiHostSelectionForm apiHostSelectionForm)
+		public bool Valid { 
+			get {
+				IDeviceControl deviceControl = this.deviceControl;
+				if (deviceControl != null) {
+					return deviceControl.Valid;
+				} else {
+					return false;
+				}
+			} 
+		}
+		public int BufferSize { 
+			get {
+				IDeviceControl deviceControl = this.deviceControl;
+				if (deviceControl != null) {
+					return deviceControl.BufferSize;
+				} else {
+					return 0;
+				}
+			} 
+		}
+		
+		public AudioSettingsControl(IUpdatableControl updatableControl)
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -44,7 +66,8 @@ namespace PortAudioSharp.PortAudioSharp
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
-			this.apiHostSelectionForm = apiHostSelectionForm;
+			this.updatableControl = updatableControl;
+			this.deviceControl = null;
 		}
 		
 		void AudioSettingsControlLoad(object sender, EventArgs e)
@@ -54,7 +77,7 @@ namespace PortAudioSharp.PortAudioSharp
 			for (int i = 0; i < hostApiCount; i++) {
 				PortAudio.PaHostApiInfo hostApiInfo = PortAudio.Pa_GetHostApiInfo(i);
 				if (hostApiInfo.type != PortAudio.PaHostApiTypeId.paInDevelopment) {
-					driverTypeComboBox.Items.Add(new HostApiItem(hostApiInfo));
+					driverTypeComboBox.Items.Add(new HostApiItem(hostApiInfo, this));
 				}
 			}
 			driverTypeComboBox.SelectedIndex = PortAudio.Pa_GetDefaultHostApi();
@@ -79,15 +102,33 @@ namespace PortAudioSharp.PortAudioSharp
 			sampleRateComboBox.Items.Add(9600);
 			sampleRateComboBox.Items.Add(8000);
 			sampleRateComboBox.SelectedIndex = 5;
+			
+			update();
 		}
 		
 		void DriverTypeComboBoxSelectedIndexChanged(object sender, EventArgs e)
 		{
 			HostApiItem selectedItem = (HostApiItem) driverTypeComboBox.SelectedItem;
 			audioSettingsPanel.Controls.Clear();
-			apiHostSelectionForm.Valid = !(selectedItem.HostApiDeviceControl is NoDevicesDeviceControl);
+			this.deviceControl = (IDeviceControl) selectedItem.HostApiDeviceControl;
 			audioSettingsPanel.Controls.Add(selectedItem.HostApiDeviceControl);
+			update();
+		}
+		
+		public void update() {
+			object sampleRateComboBoxItem = sampleRateComboBox.SelectedItem;
+			if (sampleRateComboBoxItem != null) {
+				int bufferSize = deviceControl.BufferSize;
+				int sampleRate = (int) sampleRateComboBoxItem;
+				this.latencyLabel.Text = "Latency: " + (bufferSize * 1000 / sampleRate) + " ms";
+			}
+			updatableControl.update();
 		}
 
+		
+		void SampleRateComboBoxSelectionChangeCommitted(object sender, EventArgs e)
+		{
+			update();
+		}
 	}
 }

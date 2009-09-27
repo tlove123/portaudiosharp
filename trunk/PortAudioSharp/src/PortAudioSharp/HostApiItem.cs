@@ -1,6 +1,6 @@
  /*
   * PortAudioSharp - PortAudio bindings for .NET
-  * Copyright 2006, 2007, 2008 Riccardo Gerosa and individual contributors as indicated
+  * Copyright 2006, 2007, 2008, 2009 Riccardo Gerosa and individual contributors as indicated
   * by the @authors tag. See the copyright.txt in the distribution for a
   * full listing of individual contributors.
   *
@@ -19,11 +19,11 @@
   * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   */
- 
+
 using System;
 using System.Windows.Forms;
 
-namespace PortAudioSharp.PortAudioSharp
+namespace PortAudioSharp
 {
 
 	public class HostApiItem 
@@ -41,7 +41,7 @@ namespace PortAudioSharp.PortAudioSharp
 				get { return hostApiDeviceControl; }
 			}
 			
-			public HostApiItem(PortAudio.PaHostApiInfo hostApiInfo) 
+			public HostApiItem(PortAudio.PaHostApiInfo hostApiInfo, IUpdatableControl updatableControl) 
 			{
 				this.hostApiInfo = hostApiInfo;
 				
@@ -56,17 +56,17 @@ namespace PortAudioSharp.PortAudioSharp
 				if (selectedHostApiDeviceCount > 0) {
 					switch(hostApiInfo.type) {
 					case PortAudio.PaHostApiTypeId.paMME:
-						hostApiDeviceControl = new MMEDeviceControl(hostApiInfo);
+						hostApiDeviceControl = new MMEDeviceControl(hostApiInfo, updatableControl);
 						break;
 					case PortAudio.PaHostApiTypeId.paDirectSound:
-						hostApiDeviceControl = new DirectSoundDeviceControl(hostApiInfo);
+						hostApiDeviceControl = new DirectSoundDeviceControl(hostApiInfo, updatableControl);
 						break;
 					case PortAudio.PaHostApiTypeId.paASIO:
-						hostApiDeviceControl = new ASIODeviceControl(hostApiInfo);
+						hostApiDeviceControl = new ASIODeviceControl(hostApiInfo, updatableControl);
 						break;
 					}
 				} else {
-					hostApiDeviceControl = new NoDevicesDeviceControl(hostApiInfo);
+					hostApiDeviceControl = new NoDevicesDeviceControl(hostApiInfo, updatableControl);
 				}
 			}
 			

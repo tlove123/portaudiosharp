@@ -59,7 +59,7 @@ namespace PortAudioSharpTest
 				doc.AppendChild(elem);
 				
 				ApiHostSelectionForm apiHostSelectionForm = new ApiHostSelectionForm();
-				apiHostSelectionForm.ApiHostConfigElement = elem;
+//				apiHostSelectionForm.ApiHostConfigElement = elem;
 				
 				apiHostSelectionForm.ShowDialog();
 				
