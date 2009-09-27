@@ -1,6 +1,6 @@
 ﻿ /*
   * PortAudioSharp - PortAudio bindings for .NET
-  * Copyright 2006, 2007, 2008 Riccardo Gerosa and individual contributors as indicated
+  * Copyright 2006, 2007, 2008, 2009 Riccardo Gerosa and individual contributors as indicated
   * by the @authors tag. See the copyright.txt in the distribution for a
   * full listing of individual contributors.
   *
@@ -25,16 +25,20 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace PortAudioSharp.PortAudioSharp
+namespace PortAudioSharp
 {
 	/// <summary>
 	/// Description of NoDevicesDeviceControl.
 	/// </summary>
-	public partial class NoDevicesDeviceControl : UserControl
+	public partial class NoDevicesDeviceControl : UserControl, IDeviceControl
 	{
 		private PortAudio.PaHostApiInfo paHostApiInfo;
+		private IUpdatableControl updatableControl;
 		
-		public NoDevicesDeviceControl(PortAudio.PaHostApiInfo paHostApiInfo)
+		public bool Valid { get { return false; } }
+		public int BufferSize { get { return 0; } }
+		
+		public NoDevicesDeviceControl(PortAudio.PaHostApiInfo paHostApiInfo, IUpdatableControl updatableControl)
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -45,6 +49,7 @@ namespace PortAudioSharp.PortAudioSharp
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
 			this.paHostApiInfo = paHostApiInfo;
+			this.updatableControl = updatableControl;
 		}
 	}
 }

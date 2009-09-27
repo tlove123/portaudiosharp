@@ -65,6 +65,8 @@
       <DependentUpon>DirectSoundDeviceControl.cs</DependentUpon>
     </Compile>
     <Compile Include="src\PortAudioSharp\HostApiItem.cs" />
+    <Compile Include="src\PortAudioSharp\IDeviceControl.cs" />
+    <Compile Include="src\PortAudioSharp\IUpdatableControl.cs" />
     <Compile Include="src\PortAudioSharp\MMEDeviceControl.cs" />
     <Compile Include="src\PortAudioSharp\MMEDeviceControl.Designer.cs">
       <DependentUpon>MMEDeviceControl.cs</DependentUpon>

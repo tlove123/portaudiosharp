@@ -1,6 +1,6 @@
  /*
   * PortAudioSharp - PortAudio bindings for .NET
-  * Copyright 2006, 2007, 2008 Riccardo Gerosa and individual contributors as indicated
+  * Copyright 2006, 2007, 2008, 2009 Riccardo Gerosa and individual contributors as indicated
   * by the @authors tag. See the copyright.txt in the distribution for a
   * full listing of individual contributors.
   *
@@ -25,16 +25,20 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace PortAudioSharp.PortAudioSharp
+namespace PortAudioSharp
 {
 	/// <summary>
 	/// Description of DirectSoundDeviceControl.
 	/// </summary>
-	public partial class DirectSoundDeviceControl : UserControl
+	public partial class DirectSoundDeviceControl : UserControl, IDeviceControl
 	{
-		private PortAudio.PaHostApiInfo paHostApiInfo;
+		private PortAudioSharp.PortAudio.PaHostApiInfo paHostApiInfo;
+		private IUpdatableControl updatableControl;
 		
-		public DirectSoundDeviceControl(PortAudio.PaHostApiInfo paHostApiInfo)
+		public bool Valid { get { return true; } }
+		public int BufferSize { get { return (int) bufferSizeComboBox.SelectedItem; } }
+		
+		public DirectSoundDeviceControl(PortAudio.PaHostApiInfo paHostApiInfo, IUpdatableControl updatableControl)
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -45,6 +49,7 @@ namespace PortAudioSharp.PortAudioSharp
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
 			this.paHostApiInfo = paHostApiInfo;
+			this.updatableControl = updatableControl;
 		}
 		
 	
@@ -83,6 +88,11 @@ namespace PortAudioSharp.PortAudioSharp
 				bufferSize *= 2;
 			}
 			bufferSizeComboBox.SelectedIndex =3;
+		}
+		
+		void BufferSizeComboBoxSelectionChangeCommitted(object sender, EventArgs e)
+		{
+			updatableControl.update();
 		}
 	}
 }
