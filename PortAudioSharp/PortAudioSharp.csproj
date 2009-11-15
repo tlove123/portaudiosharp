@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <ProjectGuid>{8199A26E-C92E-4F6A-9EEE-95F7AFC58847}</ProjectGuid>
@@ -114,8 +114,11 @@
       <DependentUpon>NoDevicesDeviceControl.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="src\PortAudioSharp\ALSADeviceControl.cs" />
-    <Compile Include="src\PortAudioSharp\ALSADeviceControl.Designer.cs" />
-    <None Include="src\PortAudioSharp\ALSADeviceControl.resources" />
-    <None Include="src\PortAudioSharp\ALSADeviceControl.resx" />
+    <Compile Include="src\PortAudioSharp\ALSADeviceControl.Designer.cs">
+      <DependentUpon>ALSADeviceControl.cs</DependentUpon>
+    </Compile>
+    <None Include="src\PortAudioSharp\ALSADeviceControl.resx">
+      <DependentUpon>ALSADeviceControl.cs</DependentUpon>
+    </None>
   </ItemGroup>
 </Project>
