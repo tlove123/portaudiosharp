@@ -117,7 +117,7 @@ namespace PortAudioSharp
 		
 		public void update() {
 			object sampleRateComboBoxItem = sampleRateComboBox.SelectedItem;
-			if (sampleRateComboBoxItem != null) {
+			if (sampleRateComboBoxItem != null && deviceControl != null) {
 				int bufferSize = deviceControl.BufferSize;
 				int sampleRate = (int) sampleRateComboBoxItem;
 				this.latencyLabel.Text = "Latency: " + (bufferSize * 1000 / sampleRate) + " ms";
