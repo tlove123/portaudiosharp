@@ -45,7 +45,6 @@
     <Compile Include="src\Main.cs" />
     <Compile Include="src\PortAudioTest.cs" />
     <None Include="app.config" />
-    <None Include="PortAudioSharpTest.mdp" />
     <None Include="PortAudioSharpTest.pidb" />
     <ProjectReference Include="..\PortAudioSharp\PortAudioSharp.csproj">
       <Project>{8199A26E-C92E-4F6A-9EEE-95F7AFC58847}</Project>
