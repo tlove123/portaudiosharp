@@ -54,7 +54,7 @@ namespace PortAudioSharp
 //				valid = value; 
 //				this.okButton.Enabled = valid;
 //			}
-//			get { return valid; }
+//			get { return valid; }DirectS
 //		}
 			
 		public ApiHostSelectionForm()

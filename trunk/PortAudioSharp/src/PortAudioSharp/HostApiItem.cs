@@ -64,6 +64,9 @@ namespace PortAudioSharp
 					case PortAudio.PaHostApiTypeId.paASIO:
 						hostApiDeviceControl = new ASIODeviceControl(hostApiInfo, updatableControl);
 						break;
+					case PortAudio.PaHostApiTypeId.paALSA:
+						hostApiDeviceControl = new ALSADeviceControl(hostApiInfo, updatableControl);
+						break;
 					}
 				} else {
 					hostApiDeviceControl = new NoDevicesDeviceControl(hostApiInfo, updatableControl);
