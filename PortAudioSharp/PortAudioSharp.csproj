@@ -61,7 +61,6 @@
   <ItemGroup>
     <Folder Include="src\" />
     <None Include="app.config" />
-    <None Include="PortAudioSharp.pidb" />
     <Compile Include="src\AssemblyInfo.cs" />
     <Compile Include="src\PortAudioSharp\ApiHostSelectionForm.cs" />
     <Compile Include="src\PortAudioSharp\ApiHostSelectionForm.Designer.cs">
