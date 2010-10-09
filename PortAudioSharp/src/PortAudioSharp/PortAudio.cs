@@ -417,9 +417,81 @@ namespace PortAudioSharp {
 			uint frames);
 		
 		[DllImport ("PortAudio.dll")]
+	 	public static extern PaError Pa_ReadStream(
+	 		IntPtr stream,
+	 		[Out]byte[] buffer,
+			uint frames);
+		
+		[DllImport ("PortAudio.dll")]
+	 	public static extern PaError Pa_ReadStream(
+	 		IntPtr stream,
+	 		[Out]sbyte[] buffer,
+			uint frames);
+		
+		[DllImport ("PortAudio.dll")]
+	 	public static extern PaError Pa_ReadStream(
+	 		IntPtr stream,
+	 		[Out]ushort[] buffer,
+			uint frames);
+		
+		[DllImport ("PortAudio.dll")]
+	 	public static extern PaError Pa_ReadStream(
+	 		IntPtr stream,
+	 		[Out]short[] buffer,
+			uint frames);
+		
+		[DllImport ("PortAudio.dll")]
+	 	public static extern PaError Pa_ReadStream(
+	 		IntPtr stream,
+	 		[Out]uint[] buffer,
+			uint frames);
+		
+		[DllImport ("PortAudio.dll")]
+	 	public static extern PaError Pa_ReadStream(
+	 		IntPtr stream,
+	 		[Out]int[] buffer,
+			uint frames);
+		
+		[DllImport ("PortAudio.dll")]
 	 	public static extern PaError Pa_WriteStream(
 	 		IntPtr stream,
 	 		[In]float[] buffer,
+			uint frames);
+		
+		[DllImport ("PortAudio.dll")]
+	 	public static extern PaError Pa_WriteStream(
+	 		IntPtr stream,
+	 		[In]byte[] buffer,
+			uint frames);
+				
+		[DllImport ("PortAudio.dll")]
+	 	public static extern PaError Pa_WriteStream(
+	 		IntPtr stream,
+	 		[In]sbyte[] buffer,
+			uint frames);
+		
+		[DllImport ("PortAudio.dll")]
+	 	public static extern PaError Pa_WriteStream(
+	 		IntPtr stream,
+	 		[In]ushort[] buffer,
+			uint frames);
+			
+		[DllImport ("PortAudio.dll")]
+	 	public static extern PaError Pa_WriteStream(
+	 		IntPtr stream,
+	 		[In]short[] buffer,
+			uint frames);
+		
+		[DllImport ("PortAudio.dll")]
+	 	public static extern PaError Pa_WriteStream(
+	 		IntPtr stream,
+	 		[In]uint[] buffer,
+			uint frames);
+		
+		[DllImport ("PortAudio.dll")]
+	 	public static extern PaError Pa_WriteStream(
+	 		IntPtr stream,
+	 		[In]int[] buffer,
 			uint frames);
 		
 		[DllImport ("PortAudio.dll")]
