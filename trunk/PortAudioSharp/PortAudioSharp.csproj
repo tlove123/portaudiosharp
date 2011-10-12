@@ -46,11 +46,13 @@
     <Optimize>false</Optimize>
     <WarningLevel>4</WarningLevel>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
   <ItemGroup>
@@ -60,37 +62,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="src\" />
     <None Include="app.config" />
     <Compile Include="src\AssemblyInfo.cs" />
-    <Compile Include="src\PortAudioSharp\ApiHostSelectionForm.cs" />
+    <Compile Include="src\PortAudioSharp\ApiHostSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="src\PortAudioSharp\ApiHostSelectionForm.Designer.cs">
       <DependentUpon>ApiHostSelectionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="src\PortAudioSharp\Audio.cs" />
-    <Compile Include="src\PortAudioSharp\AudioSettingsControl.cs" />
+    <Compile Include="src\PortAudioSharp\AudioSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="src\PortAudioSharp\AudioSettingsControl.Designer.cs">
       <DependentUpon>AudioSettingsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="src\PortAudioSharp\DeviceItem.cs" />
-    <Compile Include="src\PortAudioSharp\DirectSoundDeviceControl.cs" />
+    <Compile Include="src\PortAudioSharp\DirectSoundDeviceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="src\PortAudioSharp\DirectSoundDeviceControl.Designer.cs">
       <DependentUpon>DirectSoundDeviceControl.cs</DependentUpon>
     </Compile>
     <Compile Include="src\PortAudioSharp\HostApiItem.cs" />
     <Compile Include="src\PortAudioSharp\IDeviceControl.cs" />
     <Compile Include="src\PortAudioSharp\IUpdatableControl.cs" />
-    <Compile Include="src\PortAudioSharp\MMEDeviceControl.cs" />
+    <Compile Include="src\PortAudioSharp\MMEDeviceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="src\PortAudioSharp\MMEDeviceControl.Designer.cs">
       <DependentUpon>MMEDeviceControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\PortAudioSharp\NoDevicesDeviceControl.cs" />
+    <Compile Include="src\PortAudioSharp\NoDevicesDeviceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="src\PortAudioSharp\NoDevicesDeviceControl.Designer.cs">
       <DependentUpon>NoDevicesDeviceControl.cs</DependentUpon>
     </Compile>
     <Compile Include="src\PortAudioSharp\PortAudioASIO.cs" />
     <Compile Include="src\PortAudioSharp\PortAudio.cs" />
-    <Compile Include="src\PortAudioSharp\ASIODeviceControl.cs" />
+    <Compile Include="src\PortAudioSharp\ASIODeviceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="src\PortAudioSharp\ASIODeviceControl.Designer.cs">
       <DependentUpon>ASIODeviceControl.cs</DependentUpon>
     </Compile>
@@ -112,7 +125,9 @@
     <EmbeddedResource Include="src\PortAudioSharp\NoDevicesDeviceControl.resx">
       <DependentUpon>NoDevicesDeviceControl.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="src\PortAudioSharp\ALSADeviceControl.cs" />
+    <Compile Include="src\PortAudioSharp\ALSADeviceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="src\PortAudioSharp\ALSADeviceControl.Designer.cs">
       <DependentUpon>ALSADeviceControl.cs</DependentUpon>
     </Compile>
