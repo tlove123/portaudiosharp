@@ -18,9 +18,11 @@ There is no "unsafe" code.
 Compiling
 ---------
 Solution and project files for MonoDevelop 0.10 and 
-SharpDevelop 2.2 / Visual Studio 20057 are provided.
-The solution contains two projects: The PortAudioSharp library
-project and a simple test project called PortAudioSharpTest.
+SharpDevelop 4.0 / Visual Studio 2008 are provided.
+The solution contains three projects: The PortAudioSharp library
+project, a simple test project called PortAudioSharpTest and a
+WindowsFormsTest project used to test Windows Forms integration
+(this feature is not yet complete).
 
 
 Installing / Using
@@ -44,10 +46,8 @@ Installing / Using
 
 Known bugs
 ----------
-This is a very early release and it's still full of bugs,
-it has been tested only under Linux/mono-1.14 and under Windows XP/.NET-2.0,
-This version seems to work only for some ApiHosts: OSS under Linux and DirectX
-under Windows.
-It is also quite slow and unstable.
+This release may still contain some bugs,
+it has been tested mainly under Windows and some versions of Linux (with Mono).
+Should also work on Mac OS X (with Mono).
 Please help us testing, debugging and improving these bindings!
 
