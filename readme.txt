@@ -30,8 +30,10 @@ Installing / Using
 1) To use the PortAudioSharp bindings you must have the PortAudio v.19
    library installed on your system, you can find PortAudio source code at
    http://www.portaudio.com
-   Under Windows the PortAudio DLL must be named "PortAudio.dll", so
-   rename this file if necessary.
+   Under Windows the PortAudio DLL must be named "PortAudio.dll".
+   Please note that Windows DLL libraries can be compiled with different
+   calling conventions. In order to use PortaAudioSharp, the PortAudio DLL must be
+   compiled with calling convention StdCall.
    If you are using a Linux/Unix system you will have to compile and install
    the "libportaudio.so" library.
 
