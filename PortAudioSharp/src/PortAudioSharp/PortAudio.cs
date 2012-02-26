@@ -350,17 +350,55 @@ namespace PortAudioSharp {
 	 		ref PaStreamParameters inputParameters, 
 	 		ref PaStreamParameters outputParameters, 
 	 		double sampleRate);
-		
-		[DllImport ("PortAudio.dll")]
-	 	public static extern PaError Pa_OpenStream(
-	 		out IntPtr stream,
-	 		ref PaStreamParameters inputParameters, 
-	 		ref PaStreamParameters outputParameters,
-	 		double sampleRate, 
-	 		uint framesPerBuffer,
-	 		PaStreamFlags streamFlags,
-	 		PaStreamCallbackDelegate streamCallback,
-	 		IntPtr userData);
+
+        [DllImport("PortAudio.dll")]
+        public static extern PaError Pa_OpenStream(
+            out IntPtr stream,
+            ref PaStreamParameters inputParameters,
+            ref PaStreamParameters outputParameters,
+            double sampleRate,
+            uint framesPerBuffer,
+            PaStreamFlags streamFlags,
+            PaStreamCallbackDelegate streamCallback,
+            IntPtr userData);
+
+        [DllImport("PortAudio.dll")]
+        private static extern PaError Pa_OpenStream(
+            out IntPtr stream,
+            IntPtr inputParameters,
+            IntPtr outputParameters,
+            double sampleRate,
+            uint framesPerBuffer,
+            PaStreamFlags streamFlags,
+            PaStreamCallbackDelegate streamCallback,
+            IntPtr userData);
+
+        public static PaError Pa_OpenStream(
+            out IntPtr stream,
+            ref PaStreamParameters? inputParameters,
+            ref PaStreamParameters? outputParameters,
+            double sampleRate,
+            uint framesPerBuffer,
+            PaStreamFlags streamFlags,
+            PaStreamCallbackDelegate streamCallback,
+            IntPtr userData)
+        {
+            IntPtr inputParametersPtr;
+            if (inputParameters != null) {
+                inputParametersPtr = Marshal.AllocHGlobal(Marshal.SizeOf(inputParameters.Value));
+                Marshal.StructureToPtr(inputParameters.Value, inputParametersPtr, true);
+            } else {
+                inputParametersPtr = IntPtr.Zero;
+            }
+            IntPtr outputParametersPtr;
+            if (outputParameters != null) {
+                outputParametersPtr = Marshal.AllocHGlobal(Marshal.SizeOf(outputParameters.Value));
+                Marshal.StructureToPtr(outputParameters.Value, outputParametersPtr, true);
+            } else {
+                outputParametersPtr = IntPtr.Zero;
+            }
+            return Pa_OpenStream(out stream, inputParametersPtr, outputParametersPtr, sampleRate, framesPerBuffer, streamFlags, streamCallback, userData);
+        }
 
 		[DllImport ("PortAudio.dll")]
 	 	public static extern PaError Pa_OpenDefaultStream(

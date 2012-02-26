@@ -130,20 +130,33 @@ namespace PortAudioSharp {
                          int sampleRate, uint framesPerBuffer) {
 	 		IntPtr stream = new IntPtr();
 	 		IntPtr data = new IntPtr(0);
-	 		PortAudio.PaStreamParameters inputParams = new PortAudio.PaStreamParameters();
-	 		inputParams.channelCount = inputChannels;
-	 		inputParams.device = inputDevice;
-	 		inputParams.sampleFormat = PortAudio.PaSampleFormat.paFloat32;
-	 		inputParams.suggestedLatency = this.inputDeviceInfo.defaultLowInputLatency;
-	 		PortAudio.PaStreamParameters outputParams = new PortAudio.PaStreamParameters();
-	 		outputParams.channelCount = outputChannels;
-	 		outputParams.device = outputDevice;
-	 		outputParams.sampleFormat = PortAudio.PaSampleFormat.paFloat32;
-	 		outputParams.suggestedLatency = this.outputDeviceInfo.defaultLowOutputLatency;
+            
+	 		PortAudio.PaStreamParameters? inputParams;
+            if (inputDevice == -1 || inputChannels <= 0) {
+                inputParams = null;
+            } else {
+                PortAudio.PaStreamParameters inputParamsTemp = new PortAudio.PaStreamParameters();
+                inputParamsTemp.channelCount = inputChannels;
+                inputParamsTemp.device = inputDevice;
+                inputParamsTemp.sampleFormat = PortAudio.PaSampleFormat.paFloat32;
+                inputParamsTemp.suggestedLatency = this.inputDeviceInfo.defaultLowInputLatency;
+                inputParams = inputParamsTemp;
+            }
+            PortAudio.PaStreamParameters? outputParams; 
+            if (outputDevice == -1 || outputChannels <= 0) {
+                outputParams = null;
+            } else {
+                PortAudio.PaStreamParameters outputParamsTemp = new PortAudio.PaStreamParameters();
+	 		    outputParamsTemp.channelCount = outputChannels;
+	 		    outputParamsTemp.device = outputDevice;
+	 		    outputParamsTemp.sampleFormat = PortAudio.PaSampleFormat.paFloat32;
+	 		    outputParamsTemp.suggestedLatency = this.outputDeviceInfo.defaultLowOutputLatency;
+                outputParams = outputParamsTemp;
+            }
 	 		errorCheck("OpenDefaultStream",PortAudio.Pa_OpenStream(
 			    out stream,
-			    ref inputParams,
-			    ref outputParams,
+                ref inputParams,
+                ref outputParams,
 			    sampleRate,
 			    framesPerBuffer,
 			    PortAudio.PaStreamFlags.paNoFlag,
